@@ -1,26 +1,54 @@
 package com.android.snotes.repository
 
+import android.content.Context
 import androidx.lifecycle.LiveData
 import com.android.snotes.entity.Note
 import com.android.snotes.entity.NoteDao
+import com.android.snotes.entity.NoteDatabase
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers.IO
+import kotlinx.coroutines.launch
 
-class NoteRepository(private val noteDao: NoteDao) {
+class NoteRepository {
 
-    //Access all notes from here
-    val allNotes: LiveData<List<Note>> = noteDao.getAllNotes()
+    companion object {
+        var noteDatabase: NoteDatabase? = null
+        private var noteDao: NoteDao? = null
+        private var allNotes: LiveData<List<Note>>? = null
 
-    //Insert note
-    suspend fun insertNote(note: Note){
-        noteDao.insertNote(note)
-    }
+        fun initializeDB(context: Context) {
+            noteDatabase = NoteDatabase.getDatabaseInstance(context)
+            noteDao = noteDatabase!!.getNoteDao()
+            allNotes = noteDao!!.getAllNotes()
+        }
 
-    //Update note
-    suspend fun updateNote(note: Note){
-        noteDao.updateNote(note)
-    }
+        //Access all notes from here
+        fun getAllNotes(): LiveData<List<Note>>? {
+            return allNotes
+        }
 
-    //Delete note
-    suspend fun deleteNote(note: Note){
-        noteDao.deleteNote(note)
+        //Insert note
+        fun insertNote(context: Context, note: Note) {
+            initializeDB(context)
+            CoroutineScope(IO).launch {
+                noteDao?.insertNote(note)
+            }
+        }
+
+        //Update note
+        fun updateNote(context: Context, note: Note) {
+            initializeDB(context)
+            CoroutineScope(IO).launch {
+                noteDao?.updateNote(note)
+            }
+        }
+
+        //Delete note
+        fun deleteNote(context: Context, note: Note) {
+            initializeDB(context)
+            CoroutineScope(IO).launch {
+                noteDao?.deleteNote(note)
+            }
+        }
     }
 }

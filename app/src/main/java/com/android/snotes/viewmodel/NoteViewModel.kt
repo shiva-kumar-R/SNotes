@@ -1,5 +1,6 @@
 package com.android.snotes.viewmodel
 
+import android.app.Application
 import android.content.Context
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
@@ -11,26 +12,23 @@ import com.android.snotes.repository.NoteRepository
 import kotlinx.coroutines.Dispatchers.IO
 import kotlinx.coroutines.launch
 
-class NoteViewModel(context: Context): ViewModel() {
-    private var _allNotes = MutableLiveData<List<Note>>()
-    val allNotes: LiveData<List<Note>> get() = _allNotes
-    private val noteRepository: NoteRepository
+class NoteViewModel : ViewModel() {
+    private var allNotes: LiveData<List<Note>>? = null
 
-    init {
-        val noteDao = NoteDatabase.getDatabaseInstance(context).getNoteDao()
-        noteRepository = NoteRepository(noteDao)
-        _allNotes = noteRepository.allNotes as MutableLiveData<List<Note>>
+    fun getAllNotes(): LiveData<List<Note>>?{
+        allNotes = NoteRepository.getAllNotes()
+        return allNotes
     }
 
-    fun insertNote(note: Note) = viewModelScope.launch(IO) {
-        noteRepository.insertNote(note)
+    fun insertNote(context: Context, note: Note) {
+        NoteRepository.insertNote(context, note)
     }
 
-    fun updateNote(note: Note) = viewModelScope.launch(IO) {
-        noteRepository.updateNote(note)
+    fun updateNote(context: Context, note: Note) {
+        NoteRepository.updateNote(context, note)
     }
 
-    fun deleteNote(note: Note) = viewModelScope.launch(IO) {
-        noteRepository.deleteNote(note)
+    fun deleteNote(context: Context, note: Note) {
+        NoteRepository.deleteNote(context, note)
     }
 }

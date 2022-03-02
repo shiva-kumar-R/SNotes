@@ -44,7 +44,7 @@ class NoteAdapter: RecyclerView.Adapter<NoteViewHolder>() {
             }
 
             holder.itemView.note_container.setOnClickListener {
-                noteOnClickInterface?.onNoteClick(item)
+                noteOnClickInterface?.onNoteClick(item, position)
             }
         }
     }

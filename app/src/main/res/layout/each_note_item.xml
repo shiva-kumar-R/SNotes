@@ -16,7 +16,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_toLeftOf="@+id/note_delete"
-            android:gravity="center"
+            android:gravity="left"
             android:padding="13dp"
             android:text="Note Title"
             android:textColor="@color/white"

@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">SNotes</string>
+    <string name="save_note">Save</string>
+    <string name="update_note">Update</string>
+    <string name="add_note_title">Add New Note</string>
+    <string name="update_note_title">Update Note</string>
+    <string name="notes_title">Notes</string>
 </resources>
