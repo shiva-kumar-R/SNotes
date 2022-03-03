@@ -7,6 +7,7 @@ import com.android.snotes.entity.NoteDao
 import com.android.snotes.entity.NoteDatabase
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers.IO
+import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.launch
 
 class NoteRepository {
@@ -14,7 +15,7 @@ class NoteRepository {
     companion object {
         var noteDatabase: NoteDatabase? = null
         private var noteDao: NoteDao? = null
-        private var allNotes: LiveData<List<Note>>? = null
+        private var allNotes: Flow<List<Note>>? = null
 
         fun initializeDB(context: Context) {
             noteDatabase = NoteDatabase.getDatabaseInstance(context)
@@ -23,7 +24,8 @@ class NoteRepository {
         }
 
         //Access all notes from here
-        fun getAllNotes(): LiveData<List<Note>>? {
+        fun getAllNotes(context: Context): Flow<List<Note>>? {
+            initializeDB(context)
             return allNotes
         }
 

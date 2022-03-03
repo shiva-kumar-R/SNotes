@@ -1,13 +1,16 @@
 package com.android.snotes
 
 import android.content.Intent
+import android.content.Intent.FLAG_ACTIVITY_CLEAR_TASK
 import android.os.Bundle
+import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 import androidx.lifecycle.ViewModelProvider
 import com.android.snotes.entity.Note
 import com.android.snotes.util.Util
 import com.android.snotes.viewmodel.NoteViewModel
+import com.google.android.material.snackbar.Snackbar
 import kotlinx.android.synthetic.main.activity_add_note.*
 import java.text.SimpleDateFormat
 import java.util.*
@@ -37,20 +40,29 @@ class AddNoteActivity : AppCompatActivity() {
             val noteDescription = note_description_textInputEditText.text.toString()
 
             if (noteTitle.isNullOrEmpty() || noteTitle.isNullOrBlank() || noteDescription.isNullOrEmpty() || noteDescription.isNullOrBlank())
-                Util.showMessage(
-                    this.window.decorView.rootView,
+                Util.showToastMessage(
+                    this,
                     "Note is empty. Discarded successfully"
                 )
             else {
                 val sdf = SimpleDateFormat("dd MMM, yyyy - HH:mm")
                 val currentDate = sdf.format(Date())
                 val addNote = Note(noteTitle, noteDescription, currentDate)
-                noteViewModel.insertNote(this, addNote)
-                Util.showMessage(this.window.decorView.rootView, "Note added successfully")
+                noteViewModel.insertNote(this@AddNoteActivity, addNote)
+                Util.showToastMessage(this, "Note added successfully")
             }
             val intent = Intent(this, MainActivity::class.java)
+            intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_NEW_TASK or FLAG_ACTIVITY_CLEAR_TASK
             startActivity(intent)
             finish()
         }
     }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        when (item.itemId) {
+            android.R.id.home -> finish()
+        }
+        return false
+    }
+
 }

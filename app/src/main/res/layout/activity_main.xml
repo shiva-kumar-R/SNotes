@@ -10,11 +10,12 @@
         android:id="@+id/notes_toolbar"
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
-        android:background="@color/white"
+        android:background="@color/white_alpha"
         android:paddingLeft="10dp"
         app:layout_collapseMode="pin"
         app:layout_scrollFlags="scroll|enterAlways"
-        app:theme="@style/ToolBarStyle" />
+        app:theme="@style/ToolBarStyle"
+        app:titleTextAppearance="@style/Toolbar.TitleText"/>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/notes_recyclerview"

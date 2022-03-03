@@ -42,7 +42,7 @@ class MainActivity : AppCompatActivity(), NoteOnClickInterface {
             ViewModelProvider.AndroidViewModelFactory.getInstance(application)
         ).get(NoteViewModel::class.java)
 
-        noteViewModel.getAllNotes()?.observe(this, {
+        noteViewModel.getAllNotes(this)?.observe(this, {
             it?.let {
                 noteAdapter.updateNotes(it)
             }

@@ -9,8 +9,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.SNotes">
-        <activity android:name=".EditNoteActvity" />
-        <activity android:name=".AddNoteActivity" />
+        <activity android:name=".EditNoteActvity" android:windowSoftInputMode="adjustResize"/>
+        <activity android:name=".AddNoteActivity" android:windowSoftInputMode="adjustResize"/>
         <activity
             android:name=".MainActivity"
             android:exported="true">
