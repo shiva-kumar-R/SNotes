@@ -1,87 +1,94 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:fillViewport="true"
     android:fitsSystemWindows="true"
-    tools:context=".AddNoteActivity">
-
-    <androidx.appcompat.widget.Toolbar
-        android:id="@+id/notes_toolbar"
-        android:layout_width="match_parent"
-        android:layout_height="?attr/actionBarSize"
-        android:background="@color/white"
-        android:paddingLeft="10dp"
-        app:layout_collapseMode="pin"
-        app:layout_scrollFlags="scroll|enterAlways"
-        app:theme="@style/ToolBarStyle"
-        app:titleTextAppearance="@style/Toolbar.TitleText" />
+    tools:context=".EditNoteActvity">
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/notes_toolbar"
-        android:padding="10dp">
+        android:layout_height="match_parent">
 
-        <LinearLayout
-            android:id="@+id/note_title_container"
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/notes_toolbar"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
+            android:layout_height="?attr/actionBarSize"
+            android:background="@color/white"
+            android:paddingLeft="10dp"
+            app:layout_collapseMode="pin"
+            app:layout_scrollFlags="scroll|enterAlways"
+            app:theme="@style/ToolBarStyle"
+            app:titleTextAppearance="@style/Toolbar.TitleText" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/notes_toolbar"
             android:padding="10dp">
 
-            <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/note_title_textInputLayout"
-                style="@style/NoteTextContainer"
+            <LinearLayout
+                android:id="@+id/note_title_container"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                app:boxBackgroundColor="@color/white">
+                android:orientation="vertical"
+                android:padding="10dp">
 
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/note_title_textInputEditText"
-                    style="@style/NoteTitleStyle"
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/note_title_textInputLayout"
+                    style="@style/NoteTextContainer"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="Title"
-                    android:singleLine="true" />
-            </com.google.android.material.textfield.TextInputLayout>
+                    app:boxBackgroundColor="@color/white">
 
-        </LinearLayout>
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/note_title_textInputEditText"
+                        style="@style/NoteTitleStyle"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="Title"
+                        android:singleLine="true" />
+                </com.google.android.material.textfield.TextInputLayout>
 
-        <LinearLayout
-            android:id="@+id/note_description_container"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_above="@+id/note_save"
-            android:layout_below="@+id/note_title_container"
-            android:orientation="vertical"
-            android:padding="10dp">
+            </LinearLayout>
 
-            <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/note_description_textInputLayout"
-                style="@style/NoteTextContainer"
+            <LinearLayout
+                android:id="@+id/note_description_container"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                app:boxBackgroundColor="@color/white">
+                android:layout_above="@+id/note_save"
+                android:layout_below="@+id/note_title_container"
+                android:orientation="vertical"
+                android:padding="10dp">
 
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/note_description_textInputEditText"
-                    style="@style/NoteTextStyle"
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/note_description_textInputLayout"
+                    style="@style/NoteTextContainer"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="Note"
-                    android:inputType="textMultiLine" />
-            </com.google.android.material.textfield.TextInputLayout>
+                    app:boxBackgroundColor="@color/white">
 
-        </LinearLayout>
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/note_description_textInputEditText"
+                        style="@style/NoteTextStyle"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="Note"
+                        android:inputType="textMultiLine" />
+                </com.google.android.material.textfield.TextInputLayout>
 
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/note_save"
-            style="@style/NoteButtonStyle"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_alignParentBottom="true"
-            android:text="@string/update_note" />
+            </LinearLayout>
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/note_save"
+                style="@style/NoteButtonStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:text="@string/update_note" />
+        </RelativeLayout>
     </RelativeLayout>
-</RelativeLayout>
+</ScrollView>
