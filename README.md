@@ -2,7 +2,7 @@
 ## SNotes is a Simple Notes App
 
 Simple and minimal note-taking Android application built with Kotlin.
-<pre></pre>
+<br />
 ## Architecture
 
 The app uses Clean Architecture with MVVM design pattern and it's divided into 3 main layers.
@@ -17,10 +17,12 @@ The app uses Clean Architecture with MVVM design pattern and it's divided into 3
 
 
 ## Screenshots
-<pre></pre>
-<p float="left">
-<img src="./assets/Screenshot_20220308-153247.jpg" height="400"/>
-<img src="./assets/Screenshot_20220308-153323.jpg" height="400"/>
-<img src="./assets/Screenshot_20220308-153358.jpg" height="400"/>
-</p>
+<br />
+<table>
+  <tr>
+    <td><img src="./assets/Screenshot_20220308-153247.jpg" height="400"></td>
+    <td><img src="./assets/Screenshot_20220308-153323.jpg" height="400"/></td>
+    <td><img src="./assets/Screenshot_20220308-153358.jpg" height="400"/></td>
+  </tr>
+</table>
 
