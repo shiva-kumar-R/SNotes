@@ -7,6 +7,8 @@ import androidx.recyclerview.widget.RecyclerView
 import com.android.snotes.R
 import com.android.snotes.entity.Note
 import kotlinx.android.synthetic.main.each_note_item.view.*
+import java.util.*
+
 
 class NoteAdapter: RecyclerView.Adapter<NoteViewHolder>() {
     private var notes = mutableListOf<Note>()
@@ -46,6 +48,10 @@ class NoteAdapter: RecyclerView.Adapter<NoteViewHolder>() {
             holder.itemView.note_container.setOnClickListener {
                 noteOnClickInterface?.onNoteClick(item, position)
             }
+
+            val androidColors: IntArray = context!!.resources.getIntArray(R.array.noteCardBackground)
+            val randomAndroidColor = androidColors[Random().nextInt(androidColors.size)]
+            holder.itemView.note_container.setBackgroundColor(randomAndroidColor)
         }
     }
 

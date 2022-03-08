@@ -76,8 +76,13 @@
                         style="@style/NoteTextStyle"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:gravity="top|left"
                         android:hint="Note"
-                        android:inputType="textMultiLine" />
+                        android:inputType="textMultiLine"
+                        android:lines="15"
+                        android:maxLines="20"
+                        android:minLines="10"
+                        android:scrollbars="vertical" />
                 </com.google.android.material.textfield.TextInputLayout>
 
             </LinearLayout>

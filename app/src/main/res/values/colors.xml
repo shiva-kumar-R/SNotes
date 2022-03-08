@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#FF03DAC5</color>
-    <color name="colorPrimaryDark">#FF018786</color>
+    <color name="colorPrimary">#253659</color>
+    <color name="colorPrimaryDark">#253659</color>
+    <color name="colorAccent">#fdd835</color>
 
     <color name="purple_200">#FFBB86FC</color>
     <color name="purple_500">#FF6200EE</color>
@@ -13,4 +14,33 @@
     <color name="white_alpha">#f0ffffff</color>
     <color name="blue_grey800">#22242a</color>
     <color name="blue_grey700">#253659</color>
+    <color name="grey300">#c5cee0</color>
+    <color name="grey50">#f1f3f8</color>
+    <color name="grey100">#f9fafd</color>
+    <color name="grey150">#f1f3f8</color>
+    
+    
+    <color name="red">#f44336</color>
+    <color name="purple">#9c27b0</color>
+    <color name="deep_purple">#673ab7</color>
+    <color name="blue">#03a9f4</color>
+    <color name="cyan">#00bcd4</color>
+    <color name="green">#4caf50</color>
+    <color name="lime">#cddc39</color>
+    <color name="amber">#ffc107</color>
+    <color name="orange">#ff9800</color>
+    <color name="deep_orange">#ff5722</color>
+
+    <integer-array name="noteCardBackground">
+        <item>@color/red</item>
+        <item>@color/purple</item>
+        <item>@color/deep_purple</item>
+        <item>@color/blue</item>
+        <item>@color/cyan</item>
+        <item>@color/green</item>
+        <item>@color/lime</item>
+        <item>@color/amber</item>
+        <item>@color/orange</item>
+        <item>@color/deep_orange</item>
+    </integer-array>
 </resources>
